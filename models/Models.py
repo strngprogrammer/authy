@@ -1,5 +1,3 @@
-from msilib.schema import CheckBox
-from mechanize import CheckboxControl
 from wtforms import *
 from flask_wtf import FlaskForm 
 from wtforms.validators import DataRequired , Length , Email , EqualTo 
