@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="header">
+    <h1>LAUTHY</h1>
+    <h3>the best and the most safe place to protect your programs with auth.</h3>
+    <h3>Easy, Safe, Free!!</h3>
+    <div class="head-btns">
+        {% if not logged %}
+        <button class="btn login-btn" onclick="location.href='/login'">Login</button>
+        <button class="btn register-btn" onclick="location.href='/signup'">Register</button>
+        {% endif %}
+        {% if logged %}
+        <button class="btn login-btn" onclick="location.href='/dashboard'">Dashboard</button>
+        {% endif %}
+    </div>
+</div>
+<div class="main-section">
+    <h2>What is AUTHY?</h2>
+    <h3>AUTHY its a place where you can create an auth for your program any type of auth IP ,serial etc...<br><span style="color:red">WHY US</span> basically we provide more protection methods from bypassing and HTTP debuggers, so your program is safe from our side<br>why free? idk it's just free, so how to use it? easy! , just login if you already have an account or sign up if you are new here,<br>create a new application, add your auth code or ip and put an expire time like 30 days, and use the raw link to access auth list, thats all! as i said easy :).</h3>
+    <footer>
+        <ul>
+            <li><a href="mailto: amar554503@gmail.com">Email</a></li>
+            <li><a href="https://www.instagram.com/9hea">Instagram</a></li>
+            <li><a href="https:/t.me/xmurder">Telegram</a></li>
+        </ul>     
+    </footer>
+
+</div>
+{% endblock %}

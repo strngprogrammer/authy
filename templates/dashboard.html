@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="header">
+    <h1>LAUTHY</h1>
+    <h3>the best and the most safe place to protect your programs with auth.</h3>
+    <h3>Easy, Safe, Free!!</h3>
+    
+</div>
+<div class="main-section">
+    <h2 style="padding-top: 25px ;">DASHBOARD</h2>
+    <div class="apps">
+        <div class="apps-tool">
+            <ul>
+                <li><h3 style="color:black;">welcome {{username}}!!</h3></li>
+                <li><button class="btn" onclick="location.href='/newapp'"><i class="fa fa-plus"></i> New app</button></li>
+            </ul>
+        </div>
+        <div class="table-wrapper">
+            <table class="fl-table">
+                <thead>
+                <tr>
+                    <th>APP NAME</th>
+                    <th>AUTH COUNT</th>
+                    <th>APP DATE</th>
+                    <th>ACTIONS</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for app in apps %}
+                <tr>
+                    <td>{{app.name}}</td>
+                    <td>{{app.auths}}</td>
+                    <td>{{app.date}}</td>
+                    <td>
+                        <ul>
+                        <li><button class="btn" onclick="location.href='/show_auth/{{app.token}}/'"><i class="fa fa-arrow-up"></i></button></li>
+                        <li><button class="btn" onclick="location.href='/addauth/{{app.token}}/'"><i class="fa fa-plus"></i></button></li>
+                        <li><button class="btn" onclick="location.href='/remove_app/{{app.token}}/'"><i class="fa fa-trash"></i></button></li>
+                        <li><button class="btn" onclick="location.href='/request_app/{{app.token}}/'"><i class="fa fa-link"></i></button></li>
+                    </ul>
+                </td>
+                </tr>
+                {% endfor %}
+                
+                <tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

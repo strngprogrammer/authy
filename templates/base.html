@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>authy</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Cairo' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
+    <body>
+        <div class="container">
+            <nav class="main-nav">
+                    <ul>
+                        {% if logged %}
+                        <h5>Welcome {{username}}!</h5>
+                        {% endif %}
+                        <li><a href="/">Home</a></li>
+                        {% if not logged %}
+                        <li><a href="/login">Login</a></li>
+                        {% endif %}
+                        {% if logged %}
+                        <li><a href="/logout">Logout</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        {% endif %}
+                    </ul>
+            </div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

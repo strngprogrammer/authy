@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="header">
+    <h1>LAUTHY</h1>
+    <h3>the best and the most safe place to protect your programs with auth.</h3>
+    <h3>Easy, Safe, Free!!</h3>
+    
+</div>
+<div class="main-section">
+    <h2 style="padding-top: 25px ;">{{ app_name }} Auths</h2>
+    <div class="apps">
+        <div class="apps-tool">
+            <ul>
+                <li><h3 style="color:black;">welcome {{username}}!!</h3></li>
+            </ul>
+        </div>
+        <div class="table-wrapper">
+            <table class="fl-table">
+                <thead>
+                <tr>
+                    <th>AUTH NAME</th>
+                    <th>DAYS LEFT</th>
+                    <th>AUTH</th>
+                    <th>ACTIONS</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for app in authlist %}
+                <tr>
+                    <td>{{app.name}}</td>
+                    <td>{{app.days}}</td>
+                    <td>{{app.auth}}</td>
+                    <td>
+                        <ul>
+                        <li><button class="btn" onclick="location.href='/remove_auth/{{app.token}}/{{app.uniqevalue}}/'"><i class="fa fa-trash"></i></button></li>
+                    </ul>
+                </td>
+                </tr>
+                {% endfor %}
+                
+                <tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="header">
+    <h1>LAUTHY</h1>
+    <h3>the best and the most safe place to protect your programs with auth.</h3>
+    <h3>Easy, Safe, Free!!</h3>
+    
+</div>
+<div class="main-section">
+    <h2 style="padding-top: 25px ;">Request App</h2>
+    <div class="login-div">
+       <h4 style="color:black; font-family: 'Cairo';">a sample request with python</h4>
+       <textarea readonly>
+import requests
+
+url = "https://www.authy.xyz/request_raw/"
+
+headers = {
+    "token":"{{current_app.token}}",
+    "name":"{{current_app.name}}",
+}
+
+req = requests.get(url=url,headers=headers)
+
+print(req.text)
+
+       </textarea>
+    </div>
+
+</div>
+{% endblock %}

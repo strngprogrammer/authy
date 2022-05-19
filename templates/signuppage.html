@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="header">
+    <h1>LAUTHY</h1>
+    <h3>the best and the most safe place to protect your programs with auth.</h3>
+    <h3>Easy, Safe, Free!!</h3>
+    
+</div>
+<div class="main-section">
+    <h2 style="padding-top: 25px ;">Sign Up</h2>
+    <div class="login-div">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for message in messages %}
+            <span style="color:red ; font-family: 'Cairo' ;">{{ message }}<span>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action="" method="post">
+            {{field.hidden_tag()}}
+            {{field.name.label}}
+            <br>
+            {{field.name()}}
+            <br>
+            {{field.email.label}}
+            <br>
+            {{field.email()}}
+            <br>
+            {% if field.email.errors %}
+                <div class="form-error">
+                    {% for error in field.email.errors %}
+                    <span style="color:red ; font-family: 'Cairo' ;">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <br>
+            {{field.username.label}}
+            <br>
+            {{field.username()}}
+            <br>
+            {{field.password.label}}
+            <br>
+            {{field.password()}}
+            <br>
+            {{field.password_confirm.label}}
+            <br>
+            {{field.password_confirm()}}
+            <br>
+            {% if field.password_confirm.errors %}
+                <div class="form-error">
+                    {% for error in field.password_confirm.errors %}
+                    <span style="color:red ; font-family: 'Cairo' ;">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <br>
+            {{field.submit()}}
+            <br>
+            <a href="/login">Already have an account? login</a>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

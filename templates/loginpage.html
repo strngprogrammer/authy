@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="header">
+    <h1>LAUTHY</h1>
+    <h3>the best and the most safe place to protect your programs with auth.</h3>
+    <h3>Easy, Safe, Free!!</h3>
+    
+</div>
+<div class="main-section">
+    <h2 style="padding-top: 25px ;">Login</h2>
+    <div class="login-div">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category  , message in messages %}
+            <span style="color:red ; font-family: 'Cairo' ;">{{ message }}<span>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action="" method="post">
+            {{field.hidden_tag()}}
+            {{ field.username.label }}
+            <br>
+            {{ field.username() }}
+            <br>
+            {{ field.password.label }}
+            <br>
+            {{ field.password() }}
+            <br>
+            {{ field.checkbox }}
+            {{ field.checkbox.label }}
+            <br>
+            {{field.submit()}}
+            <br>
+            <a href="/signup">no account? create new account</a>
+        </form>
+       
+
+    </div>
+
+</div>
+{% endblock %}
