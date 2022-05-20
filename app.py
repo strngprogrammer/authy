@@ -68,4 +68,4 @@ app.register_blueprint(requestapp)
 app.register_blueprint(requestraw)
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(debug=False)
